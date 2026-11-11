@@ -1,9 +1,38 @@
 import type { NextConfig } from "next";
 
+const categorySlugs = [
+  "repuestos",
+  "cauchos",
+  "cascos",
+  "accesorios",
+  "carroceria",
+  "baterias",
+];
+
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  async redirects() {
+    return [
+      ...categorySlugs.flatMap((slug) => [
+        {
+          source: `/${slug}`,
+          destination: `/${slug}-motos`,
+          statusCode: 301,
+        },
+        {
+          source: `/catalogo/${slug}`,
+          destination: `/${slug}-motos`,
+          statusCode: 301,
+        },
+        {
+          source: `/catalogo/${slug}/:producto`,
+          destination: "/productos/:producto",
+          statusCode: 301,
+        },
+      ]),
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

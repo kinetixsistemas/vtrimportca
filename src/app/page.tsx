@@ -1,69 +1,539 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { siteConfig } from "@/config/site";
+import {
+  categories,
+  getCatalogStats,
+  getFeaturedProducts,
+} from "@/lib/catalog";
+import { getAllPosts, formatDate } from "@/lib/blog";
+import { pageMetadata } from "@/lib/seo";
+import { buildWhatsAppUrl, generalQuoteMessage } from "@/lib/whatsapp";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { SpeedDivider } from "@/components/ui/speed-divider";
+import { CategoryCard } from "@/components/catalog/category-card";
+import { ProductCard } from "@/components/catalog/product-card";
+import { HeroCarousel, type HeroSlide } from "@/components/home/hero-carousel";
+import {
+  ArrowRightIcon,
+  BoxIcon,
+  ShieldIcon,
+  SparkIcon,
+  TruckIcon,
+  WhatsAppIcon,
+} from "@/components/ui/icons";
 
-export default function Home() {
+export const metadata: Metadata = pageMetadata({
+  title: "Repuestos, cauchos y accesorios para motos al mayor",
+  description:
+    "VTR Import C.A. distribuye al mayor repuestos, cauchos, cascos, accesorios, carrocería y baterías para motos en toda Venezuela. Cotiza por WhatsApp.",
+  path: "/",
+});
+
+const stats = getCatalogStats();
+
+const valueProps = [
+  {
+    icon: BoxIcon,
+    title: "Surtido para tu negocio",
+    description:
+      "Seis líneas de producto para abastecer repuesteras, talleres y tiendas de accesorios.",
+  },
+  {
+    icon: TruckIcon,
+    title: "Despacho nacional",
+    description:
+      "Coordinamos envíos a toda Venezuela con logística adaptada a compras por volumen.",
+  },
+  {
+    icon: ShieldIcon,
+    title: "Atención B2B",
+    description:
+      "Condiciones de mayoreo, referencias claras y acompañamiento para tu reposición.",
+  },
+  {
+    icon: SparkIcon,
+    title: "Cotización ágil",
+    description:
+      "Cada producto tiene su referencia y un botón directo a WhatsApp para cotizar sin vueltas.",
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Elige tus líneas",
+    description:
+      "Explora el catálogo por categoría, marca de moto o modelo compatible.",
+  },
+  {
+    number: "02",
+    title: "Cotiza por WhatsApp",
+    description:
+      "Envía la referencia del producto o solicita la lista de precios al mayor.",
+  },
+  {
+    number: "03",
+    title: "Confirma tu pedido",
+    description:
+      "Definimos disponibilidad, volumen y forma de despacho con un asesor.",
+  },
+  {
+    number: "04",
+    title: "Recibe tu mercancía",
+    description:
+      "Coordinamos el envío nacional según tu ciudad y el tamaño de tu compra.",
+  },
+];
+
+const heroSlides: HeroSlide[] = [
+  {
+    src: "/images/paginasinicio/yuber-t-barras.webp",
+    alt: "T barras New Yuber disponible al mayor",
+    href: "/accesorios/new-yuber",
+    label: "Novedad Yuber",
+    title: "T Barras New Yuber",
+  },
+  {
+    src: "/images/paginasinicio/yuber-destacado-1.webp",
+    alt: "Producto New Yuber destacado para surtir tu negocio",
+    href: "/repuestos/new-yuber",
+    label: "Catálogo Yuber",
+    title: "Repuestos de alta rotación",
+  },
+  {
+    src: "/images/paginasinicio/yuber-destacado-2.webp",
+    alt: "Accesorio New Yuber disponible al mayor",
+    href: "/accesorios/new-yuber",
+    label: "Novedades",
+    title: "Accesorios para tu negocio",
+  },
+  {
+    src: "/images/paginasinicio/yuber-destacado-3.webp",
+    alt: "Surtido de productos New Yuber para comercios",
+    href: "/catalogo?q=New%20Yuber",
+    label: "Catálogo visual",
+    title: "Surtido disponible al mayor",
+  },
+  {
+    src: "/images/nitron/caucho-nitron-90-90-18-sy-025.webp",
+    alt: "Caucho Nitron 90/90-18 SY 025",
+    href: "/cauchos/nitron",
+    label: "Cauchos Nitron",
+    title: "Agarre para tu moto",
+  },
+];
+
+export default function HomePage() {
+  const featured = getFeaturedProducts(6);
+  const posts = getAllPosts().slice(0, 2);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <section className="relative isolate overflow-hidden bg-vtr-black text-white">
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(30,107,30,0.4),transparent_55%)]"
+          aria-hidden="true"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div className="tire-pattern absolute inset-0" aria-hidden="true" />
+        <div className="speed-lines absolute inset-0" aria-hidden="true" />
+
+        <Container className="relative py-14 sm:py-20 lg:py-24">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+            <div className="max-w-3xl">
+              <p className="flex flex-wrap items-center gap-3 text-[11px] font-bold uppercase tracking-[0.24em] text-vtr-amber">
+                <span aria-hidden="true" className="h-0.5 w-8 bg-vtr-amber" />
+                Distribuidor mayorista · Venezuela
+              </p>
+              <h1 className="mt-5 text-5xl leading-[0.9] text-white sm:text-6xl lg:text-7xl">
+                Surtimos tu negocio de motos.
+                <span className="block text-vtr-amber">Al mayor.</span>
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+                Repuestos, cauchos, cascos, accesorios, carrocería y baterías
+                para motos. Catálogo con referencias y compatibilidad por marca
+                y modelo, con cotización directa por WhatsApp.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button
+                  href={buildWhatsAppUrl(generalQuoteMessage())}
+                  external
+                  variant="primary"
+                  size="lg"
+                  icon={<WhatsAppIcon className="h-5 w-5" />}
+                  analyticsEvent="whatsapp_click"
+                  analyticsParams={{ source: "home_hero" }}
+                >
+                  Cotizar por WhatsApp
+                </Button>
+                <Button
+                  href="/catalogo"
+                  variant="ghost"
+                  size="lg"
+                  icon={<ArrowRightIcon className="h-5 w-5" />}
+                >
+                  Explorar catálogo
+                </Button>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/60">
+                <span>Sin precios públicos</span>
+                <span aria-hidden="true" className="text-vtr-amber">
+                  /
+                </span>
+                <span>Referencias por producto</span>
+                <span aria-hidden="true" className="text-vtr-amber">
+                  /
+                </span>
+                <span>Despacho a toda Venezuela</span>
+              </div>
+            </div>
+
+            <HeroCarousel slides={heroSlides} />
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-vtr-black/10 bg-vtr-green text-white">
+        <Container className="grid grid-cols-2 gap-6 py-7 sm:grid-cols-4">
+          {[
+            { value: stats.categories, label: "Categorías" },
+            { value: stats.products, label: "Referencias" },
+            { value: stats.brands, label: "Marcas" },
+            { value: "VE", label: "Cobertura nacional" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-baseline gap-3">
+              <span className="font-display text-4xl font-extrabold italic leading-none text-vtr-amber">
+                {item.value}
+              </span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/75">
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </Container>
+      </section>
+
+      <section className="border-b border-vtr-black/10 bg-white py-10">
+        <Container className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-md">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-vtr-green">
+              Marcas aliadas
+            </p>
+            <h2 className="mt-2 text-3xl text-vtr-black">
+              Marcas que distribuimos
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-vtr-gray-dark">
+              Trabajamos con marcas de repuestos y cauchos para surtir tu
+              negocio.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
+            <Link
+              href="/repuestos/new-yuber"
+              aria-label="Ver productos New Yuber"
+              className="block opacity-80 transition-opacity hover:opacity-100"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <Image
+                src="/images/marcas/new-yuber.webp"
+                alt="New Yuber"
+                width={443}
+                height={243}
+                className="h-10 w-auto object-contain sm:h-12"
+              />
+            </Link>
+            <Link
+              href="/cauchos/nitron"
+              aria-label="Ver cauchos Nitron"
+              className="block opacity-80 transition-opacity hover:opacity-100"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              <Image
+                src="/images/marcas/nitron.webp"
+                alt="Nitron"
+                width={206}
+                height={62}
+                className="h-8 w-auto object-contain sm:h-9"
+              />
+            </Link>
+            <div
+              className="opacity-80"
+              title="Siruis Parts — disponibilidad por confirmar"
+            >
+              <Image
+                src="/images/marcas/siruis-parts.webp"
+                alt="Siruis Parts"
+                width={211}
+                height={86}
+                className="h-9 w-auto object-contain sm:h-10"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeading
+              eyebrow="Catálogo mayorista"
+              title="Seis líneas para surtir tu negocio"
+              description="Selecciona una categoría y encuentra referencias con compatibilidad por marca y modelo de moto."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Button
+              href="/catalogo"
+              variant="secondary"
+              icon={<ArrowRightIcon className="h-4 w-4" />}
+            >
+              Ver todo el catálogo
+            </Button>
+          </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((category, index) => (
+              <CategoryCard
+                key={category.slug}
+                category={category}
+                priority={index < 3}
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <SpeedDivider className="container-vtr" />
+
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeading
+              eyebrow="Selección destacada"
+              title="Referencias listas para cotizar"
+              description="Referencias con ficha y compatibilidad. Los precios se manejan por WhatsApp según volumen."
+            />
+            <Button
+              href="/catalogo"
+              variant="outline"
+              icon={<ArrowRightIcon className="h-4 w-4" />}
+            >
+              Más productos
+            </Button>
+          </div>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {featured.map((product) => {
+              const category = categories.find(
+                (item) => item.slug === product.categorySlug,
+              );
+              if (!category) return null;
+              return (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  category={category}
+                />
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      <section className="tire-pattern relative overflow-hidden bg-vtr-black py-16 text-white sm:py-20">
+        <div className="speed-lines absolute inset-0" aria-hidden="true" />
+        <Container className="relative">
+          <SectionHeading
+            eyebrow="Por qué comprar al mayor"
+            title="Un proveedor, todas tus líneas"
+            description="Diseñado para repuesteras, talleres, concesionarios y distribuidores que necesitan reposición constante."
+            tone="dark"
+          />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {valueProps.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="clip-corner border border-white/10 bg-white/5 p-6"
+                >
+                  <span className="grid h-12 w-12 place-items-center bg-vtr-green text-white">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-5 text-2xl text-white">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/65">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <SectionHeading
+                eyebrow="Cómo comprar"
+                title="De la referencia al despacho"
+                description="Un proceso simple, pensado para que tu reposición no se detenga."
+              />
+              <div className="mt-8">
+                <Button
+                  href="/mayoristas"
+                  variant="primary"
+                  size="lg"
+                  icon={<ArrowRightIcon className="h-5 w-5" />}
+                >
+                  Quiero ser mayorista
+                </Button>
+              </div>
+            </div>
+            <ol className="grid gap-4 sm:grid-cols-2">
+              {steps.map((step) => (
+                <li
+                  key={step.number}
+                  className="clip-corner-sm border border-vtr-black/10 bg-white p-5"
+                >
+                  <span className="font-display text-4xl font-extrabold italic leading-none text-vtr-green/25">
+                    {step.number}
+                  </span>
+                  <h3 className="mt-2 text-xl text-vtr-black">{step.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-vtr-gray-dark">
+                    {step.description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-vtr-green text-white">
+        <Container className="grid gap-8 py-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-vtr-amber">
+              Lista de precios al mayor
+            </p>
+            <h2 className="mt-3 text-4xl leading-none sm:text-5xl">
+              Recibe condiciones por volumen para tu negocio
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/75">
+              Envíanos tu nombre, ciudad, tipo de negocio y WhatsApp. Un asesor
+              te comparte la lista y la disponibilidad actual.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+            <Button
+              href="/mayoristas"
+              variant="primary"
+              size="lg"
+              icon={<ArrowRightIcon className="h-5 w-5" />}
+            >
+              Solicitar lista
+            </Button>
+            <Button
+              href={buildWhatsAppUrl(generalQuoteMessage())}
+              external
+              variant="ghost"
+              size="lg"
+              icon={<WhatsAppIcon className="h-5 w-5" />}
+              analyticsEvent="whatsapp_click"
+              analyticsParams={{ source: "home_wholesale_band" }}
+            >
+              WhatsApp
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeading
+              eyebrow="Blog"
+              title="Ideas para vender más repuestos"
+              description="Contenido de ejemplo sobre surtido, rotación y operación para negocios de motos."
+            />
+            <Button
+              href="/blog"
+              variant="outline"
+              icon={<ArrowRightIcon className="h-4 w-4" />}
+            >
+              Ver blog
+            </Button>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {posts.map((post) => (
+              <article
+                key={post.slug}
+                className="clip-corner group overflow-hidden border border-vtr-black/10 bg-white"
+              >
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="grid h-full sm:grid-cols-[0.9fr_1.1fr]"
+                >
+                  <div className="relative aspect-[16/10] sm:aspect-auto">
+                    <Image
+                      src={post.cover}
+                      alt={post.coverAlt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 40vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-vtr-green">
+                      {formatDate(post.date)} · {post.readingTime}
+                    </p>
+                    <h3 className="mt-2 text-2xl leading-tight text-vtr-black">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-vtr-gray-dark">
+                      {post.description}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-vtr-green">
+                      Leer artículo
+                      <ArrowRightIcon className="h-4 w-4" />
+                    </span>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-vtr-black/10 bg-vtr-gray-light py-14">
+        <Container className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-vtr-green">
+              ¿Listo para surtir tu negocio?
+            </p>
+            <h2 className="mt-2 text-3xl text-vtr-black sm:text-4xl">
+              Cotiza hoy con un asesor mayorista
+            </h2>
+            <p className="mt-2 text-sm text-vtr-gray-dark">
+              {siteConfig.whatsappDisplay} · {siteConfig.email}
+            </p>
+          </div>
+          <Button
+            href={buildWhatsAppUrl(generalQuoteMessage())}
+            external
+            variant="whatsapp"
+            size="lg"
+            icon={<WhatsAppIcon className="h-5 w-5" />}
+            analyticsEvent="whatsapp_click"
+            analyticsParams={{ source: "home_final_cta" }}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Hablar por WhatsApp
+          </Button>
+        </Container>
+      </section>
+    </>
   );
 }

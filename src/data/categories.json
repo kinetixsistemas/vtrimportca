@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "repuestos",
+    "name": "Repuestos",
+    "tagline": "Lo que tu taller necesita, al mayor",
+    "description": "Kits de arrastre, frenos, filtros y componentes de recambio para motos de trabajo y uso diario.",
+    "image": "/images/yuber/new-yuber-cdi-cg-150.webp",
+    "order": 1,
+    "isSample": false
+  },
+  {
+    "slug": "cauchos",
+    "name": "Cauchos",
+    "tagline": "Agarre y rendimiento por volumen",
+    "description": "Cauchos delanteros y traseros, cámaras y medidas de alta rotación para todo tipo de terreno.",
+    "image": "/images/nitron/caucho-nitron-90-90-18-sy-025.webp",
+    "order": 2,
+    "isSample": false
+  },
+  {
+    "slug": "cascos",
+    "name": "Cascos",
+    "tagline": "Protección que se vende sola",
+    "description": "Cascos integrales, abatibles y visores de repuesto con enfoque en seguridad y rotación.",
+    "image": "/images/categorias/cascos.webp",
+    "order": 3,
+    "isSample": true
+  },
+  {
+    "slug": "accesorios",
+    "name": "Accesorios",
+    "tagline": "Detalles que suman ticket",
+    "description": "Espejos, manubrios, iluminación LED y accesorios de alta demanda para el motociclista.",
+    "image": "/images/yuber/new-yuber-bombillo-cruce-led.webp",
+    "order": 4,
+    "isSample": false
+  },
+  {
+    "slug": "carroceria",
+    "name": "Carrocería",
+    "tagline": "Reposición con acabado comercial",
+    "description": "Guardafangos, colines, caretas y piezas de carrocería para reposición y armado.",
+    "image": "/images/yuber/new-yuber-tanque-ava-leon-rojo.webp",
+    "order": 5,
+    "isSample": false
+  },
+  {
+    "slug": "baterias",
+    "name": "Baterías",
+    "tagline": "Energía confiable para cada moto",
+    "description": "Baterías convencionales y de gel para motos de calle, trabajo y uso intensivo.",
+    "image": "/images/categorias/baterias.webp",
+    "order": 6,
+    "isSample": true
+  }
+]
