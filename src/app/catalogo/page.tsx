@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { categories, brands } from "@/lib/catalog";
+import { categories } from "@/lib/catalog";
 import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Container } from "@/components/ui/container";
@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Catálogo mayorista de repuestos y accesorios para motos",
   description:
-    "Explora el catálogo al mayor por categoría, marca y modelo de moto. Repuestos, cauchos, cascos, accesorios, carrocería y baterías. Cotiza por WhatsApp.",
+    "Explora el catálogo al mayor por categoría. Repuestos, cauchos, cascos, accesorios, carrocería y baterías. Cotiza por WhatsApp.",
   path: "/catalogo",
 });
 
@@ -42,9 +42,9 @@ export default function CatalogoPage(props: PageProps<"/catalogo">) {
                 Catálogo mayorista
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-vtr-gray-dark sm:text-lg">
-                Busca por producto, referencia, marca o modelo de moto. Cada
-                ficha incluye compatibilidad y un botón para cotizar por
-                WhatsApp. No mostramos precios públicos.
+                Busca por producto o categoría. Cada ficha incluye
+                especificaciones y un botón para cotizar por WhatsApp. No
+                mostramos precios públicos.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -63,11 +63,6 @@ export default function CatalogoPage(props: PageProps<"/catalogo">) {
               categories={categories.map((category) => ({
                 slug: category.slug,
                 name: category.name,
-              }))}
-              brands={brands.map((brand) => ({
-                slug: brand.slug,
-                name: brand.name,
-                models: brand.models,
               }))}
             />
           </Suspense>

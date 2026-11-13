@@ -14,6 +14,21 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   async redirects() {
     return [
+      {
+        source: "/terminos",
+        destination: "/legales#terminos",
+        permanent: true,
+      },
+      {
+        source: "/privacidad",
+        destination: "/legales#privacidad",
+        permanent: true,
+      },
+      {
+        source: "/cookies",
+        destination: "/legales#cookies",
+        permanent: true,
+      },
       ...categorySlugs.flatMap((slug) => [
         {
           source: `/${slug}`,

@@ -22,6 +22,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div
+      data-reveal
       className={cn(
         "max-w-3xl",
         align === "center" && "mx-auto text-center",
@@ -31,7 +32,7 @@ export function SectionHeading({
       {eyebrow ? (
         <p
           className={cn(
-            "mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.24em]",
+            "mb-3 flex items-center gap-3 text-m font-bold uppercase tracking-[0.24em]",
             align === "center" && "justify-center",
             tone === "light" ? "text-vtr-green" : "text-vtr-amber",
           )}

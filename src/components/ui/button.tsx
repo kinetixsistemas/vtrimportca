@@ -58,7 +58,7 @@ function ButtonInner({
   return (
     <span
       className={cn(
-        "clip-corner-sm inline-flex items-center justify-center gap-2 font-sans font-bold uppercase tracking-[0.12em] transition-colors",
+        "clip-corner-sm btn-sheen inline-flex items-center justify-center gap-2 font-sans font-bold uppercase tracking-[0.12em] transition-colors",
         sizeClasses[size ?? "md"],
         variantClasses[variant ?? "primary"],
       )}
@@ -81,7 +81,7 @@ export function Button(props: ButtonProps) {
   } = props;
 
   const outerClasses = cn(
-    "group inline-flex focus-visible:outline-offset-4",
+    "group inline-flex transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-offset-4",
     className,
   );
 

@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteConfig } from "@/config/site";
 import { organizationGraphJsonLd } from "@/lib/seo";
 import { AnalyticsListener } from "@/components/analytics/analytics-listener";
+import { ConsentAnalytics } from "@/components/analytics/consent-analytics";
+import { CookieBanner } from "@/components/consent/cookie-banner";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
+import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
@@ -106,8 +108,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <CookieBanner />
         <AnalyticsListener />
-        {siteConfig.gaId ? <GoogleAnalytics gaId={siteConfig.gaId} /> : null}
+        <ConsentAnalytics />
+        <ScrollReveal />
       </body>
     </html>
   );

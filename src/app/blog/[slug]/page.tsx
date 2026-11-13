@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { SampleBadge } from "@/components/ui/sample-badge";
 import { JsonLd } from "@/components/seo/json-ld";
 import { BlogCard } from "@/components/blog/blog-card";
 import { mdxComponents } from "@/components/blog/mdx-components";
@@ -77,7 +76,6 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                   {tag}
                 </Badge>
               ))}
-              <SampleBadge isSample={post.isSample} />
             </div>
             <h1 className="mt-4 text-4xl leading-[0.95] text-vtr-black sm:text-5xl lg:text-6xl">
               {post.title}
@@ -116,11 +114,11 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
             <div className="border border-vtr-black/10 bg-white p-5">
               <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-vtr-green">
-                Contenido de ejemplo
+                Guía práctica
               </p>
               <p className="mt-2 text-sm leading-relaxed text-vtr-gray-dark">
-                Este artículo es ficticio y sirve para validar la estructura del
-                blog. Sustitúyelo por contenido real antes de publicar.
+                Contenido para repuesteras, talleres y distribuidores que buscan
+                mejorar su surtido, su rotación y su operación mayorista.
               </p>
             </div>
 

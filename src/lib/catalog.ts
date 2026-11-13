@@ -1,14 +1,7 @@
 import categoriesJson from "@/data/categories.json";
-import brandsJson from "@/data/brands.json";
 import productsJson from "@/data/products.json";
-import { categorySchema, brandSchema, productSchema } from "@/lib/schemas";
-import type {
-  Category,
-  CompatibilityGroup,
-  MotorcycleBrand,
-  Product,
-  ProductFilters,
-} from "@/types/catalog";
+import { categorySchema, productSchema } from "@/lib/schemas";
+import type { Category, Product, ProductFilters } from "@/types/catalog";
 
 function assertUnique(values: string[], label: string) {
   const seen = new Set<string>();
@@ -21,7 +14,6 @@ function assertUnique(values: string[], label: string) {
 }
 
 const parsedCategories = categorySchema.array().parse(categoriesJson);
-const parsedBrands = brandSchema.array().parse(brandsJson);
 const parsedProducts = productSchema.array().parse(productsJson);
 
 assertUnique(
@@ -29,20 +21,11 @@ assertUnique(
   "slug de categoría",
 );
 assertUnique(
-  parsedBrands.map((brand) => brand.slug),
-  "slug de marca",
-);
-assertUnique(
   parsedProducts.map((product) => product.slug),
   "slug de producto",
 );
-assertUnique(
-  parsedProducts.map((product) => product.reference),
-  "referencia de producto",
-);
 
 const categoryBySlug = new Map(parsedCategories.map((c) => [c.slug, c]));
-const brandBySlug = new Map(parsedBrands.map((b) => [b.slug, b]));
 
 for (const product of parsedProducts) {
   if (!categoryBySlug.has(product.categorySlug)) {
@@ -50,29 +33,11 @@ for (const product of parsedProducts) {
       `Catálogo: el producto "${product.slug}" apunta a la categoría inexistente "${product.categorySlug}".`,
     );
   }
-  for (const group of product.compatibility) {
-    const brand = brandBySlug.get(group.brandSlug);
-    if (!brand) {
-      throw new Error(
-        `Catálogo: el producto "${product.slug}" referencia la marca inexistente "${group.brandSlug}".`,
-      );
-    }
-    const modelSlugs = new Set(brand.models.map((model) => model.slug));
-    for (const modelSlug of group.modelSlugs) {
-      if (!modelSlugs.has(modelSlug)) {
-        throw new Error(
-          `Catálogo: el producto "${product.slug}" referencia el modelo inexistente "${group.brandSlug}/${modelSlug}".`,
-        );
-      }
-    }
-  }
 }
 
 export const categories: Category[] = [...parsedCategories].sort(
   (a, b) => a.order - b.order,
 );
-
-export const brands: MotorcycleBrand[] = parsedBrands;
 
 export const products: Product[] = parsedProducts;
 
@@ -178,16 +143,6 @@ export function getCategory(slug: string): Category | undefined {
   return categoryBySlug.get(slug);
 }
 
-export function getBrand(slug: string): MotorcycleBrand | undefined {
-  return brandBySlug.get(slug);
-}
-
-export function getModel(brandSlug: string, modelSlug: string) {
-  return brandBySlug
-    .get(brandSlug)
-    ?.models.find((model) => model.slug === modelSlug);
-}
-
 export function getProductsByCategory(categorySlug: string): Product[] {
   return products
     .filter((product) => product.categorySlug === categorySlug)
@@ -206,42 +161,12 @@ export function getRelatedProducts(product: Product, limit = 4): Product[] {
     .filter((candidate) => candidate.id !== product.id)
     .map((candidate) => {
       let score = candidate.categorySlug === product.categorySlug ? 3 : 0;
-      const candidateBrands = new Set(
-        candidate.compatibility.map((group) => group.brandSlug),
-      );
-      for (const group of product.compatibility) {
-        if (candidateBrands.has(group.brandSlug)) score += 2;
-      }
       score += candidate.tags.filter((tag) => product.tags.includes(tag)).length;
       return { candidate, score };
     })
     .sort((a, b) => b.score - a.score || sortProducts(a.candidate, b.candidate))
     .slice(0, limit)
     .map((entry) => entry.candidate);
-}
-
-export function getCompatibilityGroups(
-  product: Product,
-): CompatibilityGroup[] {
-  return product.compatibility.flatMap((group) => {
-    const brand = getBrand(group.brandSlug);
-    if (!brand) return [];
-    const models = group.modelSlugs
-      .map((slug) => brand.models.find((model) => model.slug === slug))
-      .filter((model): model is NonNullable<typeof model> => Boolean(model))
-      .map((model) => `${model.name} (${model.years})`);
-    return models.length > 0 ? [{ brandName: brand.name, models }] : [];
-  });
-}
-
-export function getCompatibilitySummary(product: Product): string {
-  const groups = getCompatibilityGroups(product);
-  if (groups.length === 0) return "Compatibilidad por confirmar";
-  const totalModels = groups.reduce(
-    (total, group) => total + group.models.length,
-    0,
-  );
-  return `${groups.length} marca${groups.length === 1 ? "" : "s"} · ${totalModels} modelo${totalModels === 1 ? "" : "s"}`;
 }
 
 export function getCategoryProductCount(categorySlug: string): number {
@@ -259,22 +184,6 @@ export function filterProducts(filters: ProductFilters): Product[] {
         return false;
       }
 
-      if (filters.brandSlug || filters.modelSlug) {
-        const matchesCompatibility = product.compatibility.some((group) => {
-          if (filters.brandSlug && group.brandSlug !== filters.brandSlug) {
-            return false;
-          }
-          if (
-            filters.modelSlug &&
-            !group.modelSlugs.includes(filters.modelSlug)
-          ) {
-            return false;
-          }
-          return true;
-        });
-        if (!matchesCompatibility) return false;
-      }
-
       if (tokens.length > 0) {
         const haystack = normalizeText(buildSearchHaystack(product));
         if (!tokens.every((token) => haystack.includes(token))) return false;
@@ -287,18 +196,13 @@ export function filterProducts(filters: ProductFilters): Product[] {
 
 function buildSearchHaystack(product: Product): string {
   const category = getCategory(product.categorySlug);
-  const compatibility = getCompatibilityGroups(product)
-    .map((group) => `${group.brandName} ${group.models.join(" ")}`)
-    .join(" ");
   return [
     product.name,
-    product.reference,
     product.productBrand,
     product.shortDescription,
     product.description,
     product.tags.join(" "),
     category?.name ?? "",
-    compatibility,
   ].join(" ");
 }
 
@@ -311,6 +215,6 @@ export function getCatalogStats() {
   return {
     products: products.length,
     categories: categories.length,
-    brands: brands.length,
+    brands: new Set(products.map((product) => product.productBrand)).size,
   };
 }

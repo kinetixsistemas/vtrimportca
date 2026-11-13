@@ -37,7 +37,7 @@ const steps = [
     number: "01",
     title: "Confirma tu pedido y ciudad",
     description:
-      "Indica las referencias que necesitas y la ciudad de destino para revisar disponibilidad y condiciones.",
+      "Indica los productos que necesitas y la ciudad de destino para revisar disponibilidad y condiciones.",
   },
   {
     number: "02",
@@ -95,7 +95,7 @@ const faqs = [
   {
     question: "¿Puedo retirar en tienda?",
     answer:
-      "El punto de retiro y los horarios se confirman con tu asesor. Los datos de ubicación del sitio son placeholders hasta que se configuren.",
+      "El punto de retiro y los horarios se confirman con tu asesor según la disponibilidad del pedido.",
   },
   {
     question: "¿Cómo se calcula el costo de envío?",
@@ -159,8 +159,8 @@ export default function EnviosPage() {
                 plazos fijos hasta confirmar con el transportista.
               </p>
               <p className="mt-4 border-t border-white/15 pt-4 text-xs text-white/60">
-                Datos logísticos placeholder. Configurar transportistas y
-                condiciones reales antes de publicar.
+                Coordinamos con transportistas de cobertura nacional según tu
+                destino y volumen.
               </p>
             </div>
           </div>
@@ -275,7 +275,7 @@ export default function EnviosPage() {
           <div>
             <h2 className="text-3xl sm:text-4xl">¿Listo para despachar?</h2>
             <p className="mt-2 text-sm text-white/70">
-              Envíanos tu ciudad y las referencias que necesitas.
+              Envíanos tu ciudad y los productos que necesitas.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

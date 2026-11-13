@@ -1,10 +1,8 @@
 import type { Category } from "@/types/catalog";
 import {
   filterProducts,
-  getBrand,
   getCategory,
   getCategoryPath,
-  getModel,
 } from "@/lib/catalog";
 import { ProductCard } from "@/components/catalog/product-card";
 import { EmptyState } from "@/components/catalog/empty-state";
@@ -24,25 +22,14 @@ export async function CatalogResults({
 }) {
   const params = await searchParams;
   const q = first(params.q)?.trim();
-  const brandSlug = first(params.marca);
-  const modelSlug = first(params.modelo);
   const categorySlug = category?.slug ?? first(params.categoria);
 
   const results = filterProducts({
     q,
     categorySlug,
-    brandSlug,
-    modelSlug,
   });
 
-  const brand = brandSlug ? getBrand(brandSlug) : undefined;
-  const model =
-    brandSlug && modelSlug ? getModel(brandSlug, modelSlug) : undefined;
-  const activeFilters = [
-    q ? `“${q}”` : null,
-    brand ? brand.name : null,
-    model ? model.name : null,
-  ].filter(Boolean);
+  const activeFilters = [q ? `“${q}”` : null].filter(Boolean);
 
   return (
     <div>

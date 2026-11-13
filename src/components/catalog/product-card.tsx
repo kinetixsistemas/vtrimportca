@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Category, Product } from "@/types/catalog";
-import { getCompatibilitySummary, getProductPath } from "@/lib/catalog";
+import { getProductPath } from "@/lib/catalog";
 import { buildWhatsAppUrl, productQuoteMessage } from "@/lib/whatsapp";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SampleBadge } from "@/components/ui/sample-badge";
 import {
   ArrowRightIcon,
-  ShieldIcon,
   WhatsAppIcon,
 } from "@/components/ui/icons";
 
@@ -22,13 +21,12 @@ export function ProductCard({
   const quoteHref = buildWhatsAppUrl(
     productQuoteMessage({
       productName: product.name,
-      reference: product.reference,
       categoryName: category.name,
     }),
   );
 
   return (
-    <article className="group relative h-full drop-shadow-[0_16px_20px_rgba(11,11,11,0.12)]">
+    <article className="group relative h-full drop-shadow-[0_16px_20px_rgba(11,11,11,0.12)] transition-transform duration-300 hover:-translate-y-1">
       <div className="clip-corner flex h-full flex-col overflow-hidden bg-white">
         <Link
           href={getProductPath(product)}
@@ -49,10 +47,7 @@ export function ProductCard({
         </Link>
 
         <div className="flex flex-1 flex-col p-5">
-          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-vtr-green">
-            Ref. {product.reference}
-          </p>
-          <h3 className="mt-2 text-2xl leading-none text-vtr-black">
+          <h3 className="text-2xl leading-none text-vtr-black">
             <Link
               href={getProductPath(product)}
               className="transition-colors hover:text-vtr-green"
@@ -62,11 +57,6 @@ export function ProductCard({
           </h3>
           <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-vtr-gray-dark">
             {product.shortDescription}
-          </p>
-
-          <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-vtr-gray-dark/75">
-            <ShieldIcon className="h-4 w-4 shrink-0 text-vtr-green" />
-            {getCompatibilitySummary(product)}
           </p>
 
           <div className="mt-auto flex flex-wrap items-center gap-3 pt-5">
@@ -79,7 +69,6 @@ export function ProductCard({
               analyticsEvent="quote_click"
               analyticsParams={{
                 source: "product_card",
-                product_reference: product.reference,
                 category: category.slug,
               }}
             >

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
-import { getCompatibilityGroups, getProductPath } from "@/lib/catalog";
+import { getProductPath } from "@/lib/catalog";
 import type { BreadcrumbItem } from "@/components/ui/breadcrumbs";
 import type { BlogPost } from "@/types/blog";
 import type { Category, Product } from "@/types/catalog";
@@ -13,7 +13,7 @@ export function pageMetadata({
   title,
   description,
   path,
-  image = "/images/hero.webp",
+  image = "/images/carrucel/siruis-parts-caucho-carrucel.webp",
   imageAlt,
   type = "website",
   noIndex = false,
@@ -68,7 +68,7 @@ export function organizationGraphJsonLd() {
         legalName: siteConfig.legalName,
         url: siteConfig.url,
         logo: absoluteUrl("/logo-vtr.svg"),
-        image: absoluteUrl("/images/hero.webp"),
+        image: absoluteUrl("/images/carrucel/siruis-parts-caucho-carrucel.webp"),
         description: siteConfig.description,
         email: siteConfig.email,
         telephone: `+${siteConfig.whatsappNumber}`,
@@ -79,7 +79,7 @@ export function organizationGraphJsonLd() {
         "@id": absoluteUrl("/#localbusiness"),
         name: siteConfig.name,
         url: siteConfig.url,
-        image: absoluteUrl("/images/hero.webp"),
+        image: absoluteUrl("/images/carrucel/siruis-parts-caucho-carrucel.webp"),
         logo: absoluteUrl("/logo-vtr.svg"),
         description: siteConfig.description,
         email: siteConfig.email,
@@ -128,30 +128,15 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
 }
 
 export function productJsonLd(product: Product, category: Category) {
-  const compatibility = getCompatibilityGroups(product).map((group) => ({
-    "@type": "PropertyValue",
-    name: `Compatibilidad ${group.brandName}`,
-    value: group.models.join(", "),
-  }));
-
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    sku: product.reference,
     image: product.gallery.map((image) => absoluteUrl(image)),
     description: `${product.shortDescription} ${product.description}`,
     brand: { "@type": "Brand", name: product.productBrand },
     category: category.name,
     url: absoluteUrl(getProductPath(product)),
-    additionalProperty: [
-      {
-        "@type": "PropertyValue",
-        name: "Referencia",
-        value: product.reference,
-      },
-      ...compatibility,
-    ],
   };
 }
 

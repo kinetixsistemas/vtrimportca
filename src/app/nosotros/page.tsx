@@ -22,8 +22,8 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Conoce a VTR Import C.A., distribuidor mayorista de repuestos, cauchos, cascos, accesorios, carrocería y baterías para motos en Venezuela.",
   path: "/nosotros",
-  image: "/images/nosotros.webp",
-  imageAlt: "Equipo y operación de VTR Import — imagen de demostración",
+  image: "/images/carrucel/siruis-parts-caucho-carrucel.webp",
+  imageAlt: "Caucho Siruis Parts del catálogo mayorista de VTR Import C.A.",
 });
 
 const breadcrumbs = [
@@ -54,7 +54,7 @@ const values = [
     icon: SparkIcon,
     title: "Enfoque en tu rotación",
     description:
-      "Te ayudamos a priorizar referencias de alta demanda para que tu inventario trabaje a tu favor.",
+      "Te ayudamos a priorizar productos de alta demanda para que tu inventario trabaje a tu favor.",
   },
 ];
 
@@ -67,8 +67,8 @@ export default function NosotrosPage() {
 
       <section className="relative isolate overflow-hidden bg-vtr-black text-white">
         <Image
-          src="/images/nosotros.webp"
-          alt="Operación de VTR Import — imagen de demostración"
+          src="/images/carrucel/new-yuver-t-barras.webp"
+          alt="Catálogo mayorista de repuestos y accesorios para motos"
           fill
           priority
           sizes="100vw"
@@ -123,9 +123,9 @@ export default function NosotrosPage() {
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-vtr-gray-dark sm:text-base">
               <p>
                 El mercado de motos en Venezuela se mueve rápido. Una repuestera
-                necesita surtido, referencias claras y un canal directo para
+                necesita surtido, productos claros y un canal directo para
                 resolver dudas. VTR Import C.A. se organiza alrededor de esa
-                necesidad: catálogo por líneas, compatibilidad visible y
+                necesidad: catálogo por líneas, fichas claras y
                 cotización por WhatsApp.
               </p>
               <p>
@@ -142,12 +142,12 @@ export default function NosotrosPage() {
 
             <div className="mt-8 border-l-4 border-vtr-amber bg-vtr-gray-light p-5 text-sm leading-relaxed text-vtr-gray-dark">
               <p className="font-semibold text-vtr-black">
-                Nota de demostración
+                Compromiso mayorista
               </p>
               <p className="mt-1">
-                Este sitio usa contenido, imágenes y datos de producto de
-                ejemplo. La historia, las cifras y los datos de contacto deben
-                reemplazarse por información real antes de publicar.
+                Mantenemos una relación comercial estable con cada negocio:
+                claridad en las condiciones, surtido por líneas y
+                acompañamiento antes y después del despacho.
               </p>
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function NosotrosPage() {
                 {stats.products}
               </p>
               <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-vtr-gray-dark/70">
-                Referencias
+                Productos
               </p>
             </div>
             <div className="clip-corner border border-vtr-black/10 bg-white p-6">
@@ -224,8 +224,8 @@ export default function NosotrosPage() {
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div className="clip-corner relative aspect-[4/3] overflow-hidden bg-vtr-gray-light">
             <Image
-              src="/images/nosotros.webp"
-              alt="Imagen de demostración de la operación mayorista"
+              src="/images/asesor-servios.webp"
+              alt="Caucho Siruis Parts del catálogo mayorista de VTR Import C.A."
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
@@ -240,7 +240,7 @@ export default function NosotrosPage() {
             <ul className="mt-6 space-y-3 text-sm leading-relaxed text-vtr-gray-dark sm:text-base">
               <li className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 bg-vtr-amber" />
-                Catálogo organizado por categoría y compatibilidad.
+                Catálogo organizado por categoría.
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 bg-vtr-amber" />

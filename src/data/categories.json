@@ -22,9 +22,9 @@
     "name": "Cascos",
     "tagline": "Protección que se vende sola",
     "description": "Cascos integrales, abatibles y visores de repuesto con enfoque en seguridad y rotación.",
-    "image": "/images/categorias/cascos.webp",
+    "image": "/images/siruis-parts/cascos/siruis-parts-casco-motorizado-saturno-3120.webp",
     "order": 3,
-    "isSample": true
+    "isSample": false
   },
   {
     "slug": "accesorios",
@@ -36,21 +36,30 @@
     "isSample": false
   },
   {
+    "slug": "baterias",
+    "name": "Baterías",
+    "tagline": "Energía confiable para cada moto",
+    "description": "Baterías convencionales y de gel para motos de calle, trabajo y uso intensivo.",
+    "image": "/images/yuber/baterias/new-yuber-bateria-12n65.webp",
+    "order": 5,
+    "isSample": false
+  },
+  {
     "slug": "carroceria",
     "name": "Carrocería",
     "tagline": "Reposición con acabado comercial",
     "description": "Guardafangos, colines, caretas y piezas de carrocería para reposición y armado.",
     "image": "/images/yuber/new-yuber-tanque-ava-leon-rojo.webp",
-    "order": 5,
+    "order": 6,
     "isSample": false
   },
   {
-    "slug": "baterias",
-    "name": "Baterías",
-    "tagline": "Energía confiable para cada moto",
-    "description": "Baterías convencionales y de gel para motos de calle, trabajo y uso intensivo.",
-    "image": "/images/categorias/baterias.webp",
-    "order": 6,
-    "isSample": true
+    "slug": "maleteros",
+    "name": "Maleteros",
+    "tagline": "Reposición con acabado comercial",
+    "description": "Maleteros para motorizados.",
+    "image": "/images/siruis-parts/maleteros/siruis-parts-maletero-moto-ym-08572.webp",
+    "order": 5,
+    "isSample": false
   }
 ]

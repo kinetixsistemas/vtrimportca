@@ -5,8 +5,6 @@ import type { Metadata } from "next";
 import {
   getCategory,
   getCategoryPath,
-  getCompatibilityGroups,
-  getCompatibilitySummary,
   getProductBrandPath,
   getProductBrandSlug,
   getProductBySlugAny,
@@ -24,14 +22,11 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { SampleBadge } from "@/components/ui/sample-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { JsonLd } from "@/components/seo/json-ld";
-import { CompatibilityTable } from "@/components/catalog/compatibility-table";
 import { ProductCard } from "@/components/catalog/product-card";
 import {
   ArrowRightIcon,
-  ShieldIcon,
   WhatsAppIcon,
 } from "@/components/ui/icons";
 
@@ -58,8 +53,8 @@ export async function generateMetadata({
   }
 
   return pageMetadata({
-    title: `${product.name} — Ref. ${product.reference}`,
-    description: `${product.shortDescription} Compatible con ${getCompatibilitySummary(product)}. Cotiza al mayor por WhatsApp.`,
+    title: product.name,
+    description: `${product.shortDescription} Cotiza al mayor por WhatsApp.`,
     path: getProductPath(product),
     image: product.image,
     imageAlt: `${product.name} — ${product.productBrand}`,
@@ -80,12 +75,10 @@ export default async function ProductoPage({
   const quoteHref = buildWhatsAppUrl(
     productQuoteMessage({
       productName: product.name,
-      reference: product.reference,
       categoryName: category.name,
     }),
   );
   const related = getRelatedProducts(product, 3);
-  const compatibility = getCompatibilityGroups(product);
   const productBrandSlug = getProductBrandSlug(product);
   const breadcrumbs = [
     { label: "Inicio", href: "/" },
@@ -120,21 +113,16 @@ export default async function ProductoPage({
                 />
                 <div className="absolute left-4 top-4 flex flex-wrap gap-2">
                   <Badge variant="dark">{category.name}</Badge>
-                  <SampleBadge isSample={product.isSample} />
                 </div>
               </div>
               <p className="mt-3 text-xs text-vtr-gray-dark/70">
-                {product.isSample
-                  ? "Imagen de muestra. Confirma presentación y acabado con un asesor."
-                  : "Imagen referencial del producto. Confirma presentación y acabado con un asesor."}
+                Imagen referencial del producto. Confirma presentación y acabado
+                con un asesor.
               </p>
             </div>
 
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-vtr-green">
-                Ref. {product.reference}
-              </p>
-              <h1 className="mt-2 text-4xl leading-[0.95] text-vtr-black sm:text-5xl">
+              <h1 className="text-4xl leading-[0.95] text-vtr-black sm:text-5xl">
                 {product.name}
               </h1>
               <p className="mt-4 text-base leading-relaxed text-vtr-gray-dark sm:text-lg">
@@ -142,10 +130,6 @@ export default async function ProductoPage({
               </p>
 
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-2 border border-vtr-black/10 bg-white px-3 py-2 text-xs font-semibold text-vtr-gray-dark">
-                  <ShieldIcon className="h-4 w-4 text-vtr-green" />
-                  {getCompatibilitySummary(product)}
-                </span>
                 <Link
                   href={getCategoryPath(category)}
                   className="text-xs font-bold uppercase tracking-[0.1em] text-vtr-green underline-offset-4 hover:underline"
@@ -178,7 +162,6 @@ export default async function ProductoPage({
                     analyticsEvent="quote_click"
                     analyticsParams={{
                       source: "product_detail",
-                      product_reference: product.reference,
                       category: category.slug,
                     }}
                   >
@@ -203,10 +186,9 @@ export default async function ProductoPage({
                   analyticsEvent="whatsapp_click"
                   analyticsParams={{
                     source: "product_detail_general",
-                    product_reference: product.reference,
                   }}
                 >
-                  Consultar otra referencia
+                  Consultar otro producto
                 </Button>
               </div>
 
@@ -231,8 +213,8 @@ export default async function ProductoPage({
       </section>
 
       <section className="border-y border-vtr-black/10 bg-white py-12 sm:py-16">
-        <Container className="grid gap-10 lg:grid-cols-2">
-          <div>
+        <Container>
+          <div className="max-w-3xl">
             <SectionHeading eyebrow="Ficha del producto" title="Descripción" />
             <p className="mt-4 text-sm leading-relaxed text-vtr-gray-dark sm:text-base">
               {product.description}
@@ -243,23 +225,6 @@ export default async function ProductoPage({
                   {tag}
                 </Badge>
               ))}
-            </div>
-          </div>
-
-          <div>
-            <SectionHeading
-              eyebrow="Compatibilidad"
-              title="Motos compatibles"
-              description={
-                compatibility.length > 0
-                  ? product.isSample
-                    ? "Datos de muestra. Confirma siempre con la referencia exacta de tu moto."
-                    : "Compatibilidad referencial según el nombre del producto. Confirma siempre con la referencia exacta de tu moto."
-                  : "Consulta la compatibilidad con un asesor antes de comprar."
-              }
-            />
-            <div className="mt-5">
-              <CompatibilityTable product={product} />
             </div>
           </div>
         </Container>

@@ -10,27 +10,9 @@ export const categorySchema = z.object({
   isSample: z.boolean(),
 });
 
-export const modelSchema = z.object({
-  slug: z.string().min(1),
-  name: z.string().min(1),
-  years: z.string().min(1),
-});
-
-export const brandSchema = z.object({
-  slug: z.string().min(1),
-  name: z.string().min(1),
-  isSample: z.boolean(),
-  models: z.array(modelSchema).min(1),
-});
-
 export const specSchema = z.object({
   label: z.string().min(1),
   value: z.string().min(1),
-});
-
-export const compatibilitySchema = z.object({
-  brandSlug: z.string().min(1),
-  modelSlugs: z.array(z.string().min(1)).min(1),
 });
 
 export const productSchema = z.object({
@@ -38,14 +20,12 @@ export const productSchema = z.object({
   slug: z.string().min(1),
   categorySlug: z.string().min(1),
   name: z.string().min(1),
-  reference: z.string().min(1),
   productBrand: z.string().min(1),
   shortDescription: z.string().min(1),
   description: z.string().min(1),
   image: z.string().startsWith("/"),
   gallery: z.array(z.string().startsWith("/")).min(1),
   specs: z.array(specSchema).min(1),
-  compatibility: z.array(compatibilitySchema),
   featured: z.boolean(),
   isSample: z.boolean(),
   tags: z.array(z.string().min(1)),

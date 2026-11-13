@@ -51,7 +51,7 @@ const contactCards = [
     value: siteConfig.rif,
     href: null,
     external: false,
-    note: "Dato fiscal placeholder.",
+    note: "Identificación fiscal de la empresa.",
   },
   {
     icon: MapPinIcon,
@@ -64,6 +64,10 @@ const contactCards = [
 ];
 
 export default function ContactoPage() {
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${siteConfig.address}, ${siteConfig.city}`,
+  )}`;
+
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(breadcrumbs)} />
@@ -93,7 +97,7 @@ export default function ContactoPage() {
             <SectionHeading
               eyebrow="Canales"
               title="Datos de contacto"
-              description="Los datos mostrados son placeholders de demostración."
+              description="Canales oficiales para cotizaciones y consultas administrativas."
             />
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -173,12 +177,19 @@ export default function ContactoPage() {
               <div className="relative">
                 <MapPinIcon className="h-7 w-7 text-vtr-green" />
                 <p className="mt-3 font-display text-2xl font-extrabold italic text-vtr-black">
-                  Mapa no configurado
+                  Visítanos
                 </p>
                 <p className="mt-1 max-w-sm text-sm leading-relaxed text-vtr-gray-dark">
-                  La ubicación real se agregará cuando se confirmen los datos de
-                  la empresa. Por ahora, {siteConfig.address}, {siteConfig.city}.
+                  {siteConfig.address}, {siteConfig.city}.
                 </p>
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-vtr-green underline underline-offset-4"
+                >
+                  Ver ubicación en Google Maps
+                </a>
               </div>
             </div>
           </div>

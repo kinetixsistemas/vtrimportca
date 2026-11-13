@@ -57,7 +57,7 @@ export async function generateMetadata({
 
   return pageMetadata({
     title: `${brand.name} en ${category.name} al mayor`,
-    description: `Productos ${brand.name} de ${category.name} para motos. ${brandProducts.length} referencias disponibles para cotizar por WhatsApp al mayor.`,
+    description: `Productos ${brand.name} de ${category.name} para motos. ${brandProducts.length} productos disponibles para cotizar por WhatsApp al mayor.`,
     path: getProductBrandPath(category, brand.slug),
     image: brandProducts[0]?.image,
     imageAlt: `${brand.name} — ${category.name} para motos`,
@@ -123,11 +123,11 @@ export default async function MarcaPage({
               {brand.name}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-              Referencias de {brand.name} dentro de {category.name}. Cotiza al
+              Productos de {brand.name} dentro de {category.name}. Cotiza al
               mayor por WhatsApp según disponibilidad y volumen.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              <Badge variant="amber">{brand.count} referencias</Badge>
+              <Badge variant="amber">{brand.count} productos</Badge>
               <Badge variant="light">{category.name}</Badge>
             </div>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">

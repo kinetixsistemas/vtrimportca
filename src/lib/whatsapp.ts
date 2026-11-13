@@ -10,17 +10,14 @@ export function generalQuoteMessage(): string {
 
 export function productQuoteMessage({
   productName,
-  reference,
   categoryName,
 }: {
   productName: string;
-  reference: string;
   categoryName: string;
 }): string {
   return [
     "Hola VTR Import C.A., quiero cotizar al mayor:",
     `• Producto: ${productName}`,
-    `• Referencia: ${reference}`,
     `• Categoría: ${categoryName}`,
     "",
     "¿Está disponible y cuál es el precio por volumen?",

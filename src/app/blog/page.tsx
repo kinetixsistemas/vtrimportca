@@ -39,7 +39,7 @@ export default function BlogPage() {
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-vtr-gray-dark sm:text-lg">
               Contenido práctico para negocios que viven del mercado de motos.
-              Artículos de ejemplo para demostrar la estructura del blog.
+              Guías y criterios para surtir, reponer y hacer crecer tu negocio.
             </p>
           </div>
         </Container>
@@ -65,9 +65,9 @@ export default function BlogPage() {
       <section className="border-t border-vtr-black/10 bg-white py-12 sm:py-16">
         <Container className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <SectionHeading
-            eyebrow="Contenido de demostración"
-            title="Artículos de ejemplo"
-            description="Los textos del blog son ficticios y sirven para validar el diseño. Reemplázalos por contenido real antes de publicar."
+            eyebrow="Contenido para tu negocio"
+            title="Aprende a surtir mejor"
+            description="Compartimos criterios sobre surtido, rotación, inventario y operación para repuesteras, talleres y distribuidores."
           />
           <div className="text-sm text-vtr-gray-dark">
             <p className="font-semibold text-vtr-black">¿Quieres proponer un tema?</p>

@@ -3,7 +3,7 @@ import { SearchIcon } from "@/components/ui/icons";
 
 export function EmptyState({
   title = "No encontramos productos con esos filtros",
-  description = "Prueba con otra palabra, cambia la marca o el modelo, o limpia los filtros para ver todo el catálogo.",
+  description = "Prueba con otra palabra o limpia los filtros para ver todo el catálogo.",
   clearHref = "/catalogo",
 }: {
   title?: string;

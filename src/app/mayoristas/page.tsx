@@ -54,7 +54,7 @@ const benefits = [
     icon: ShieldIcon,
     title: "Acompañamiento B2B",
     description:
-      "Un asesor te ayuda a priorizar referencias de alta rotación para tu negocio.",
+      "Un asesor te ayuda a priorizar productos de alta rotación para tu negocio.",
   },
 ];
 
@@ -69,7 +69,7 @@ const faqs = [
   {
     question: "¿Los precios se publican en el sitio?",
     answer:
-      "No. El catálogo muestra productos, referencias y compatibilidad, pero los precios y condiciones de mayoreo se comparten por WhatsApp.",
+      "No. El catálogo muestra los productos, pero los precios y condiciones de mayoreo se comparten por WhatsApp.",
   },
   {
     question: "¿Hay una compra mínima?",
@@ -149,7 +149,7 @@ export default function MayoristasPage() {
                   {stats.products}
                 </p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-white/65">
-                  Referencias
+                  Productos
                 </p>
               </div>
               <div className="clip-corner-sm border border-white/10 bg-white/5 p-4">
@@ -259,9 +259,6 @@ export default function MayoristasPage() {
                   </a>
                 </p>
                 <p className="mt-1">Horario: {siteConfig.schedule}</p>
-                <p className="mt-3 text-xs text-vtr-gray-dark/60">
-                  Datos de contacto placeholder. Reemplazar antes de publicar.
-                </p>
               </div>
             </div>
 

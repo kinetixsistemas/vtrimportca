@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
-  brands,
   categories,
   getCategoryByUrlSegment,
   getCategoryPath,
@@ -116,7 +115,7 @@ export default async function CategoriaPage({
               {category.description}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              <Badge variant="amber">{count} referencias</Badge>
+              <Badge variant="amber">{count} productos</Badge>
               <Badge variant="light">{category.tagline}</Badge>
             </div>
           </div>
@@ -130,11 +129,6 @@ export default async function CategoriaPage({
               categories={categories.map((item) => ({
                 slug: item.slug,
                 name: item.name,
-              }))}
-              brands={brands.map((brand) => ({
-                slug: brand.slug,
-                name: brand.name,
-                models: brand.models,
               }))}
               fixedCategory={{ slug: category.slug, name: category.name }}
             />

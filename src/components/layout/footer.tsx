@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { categories, getCategoryPath } from "@/lib/catalog";
 import { buildWhatsAppUrl, generalQuoteMessage } from "@/lib/whatsapp";
@@ -22,6 +23,7 @@ const companyLinks = [
   { href: "/nosotros", label: "Nosotros" },
   { href: "/blog", label: "Blog" },
   { href: "/contacto", label: "Contacto" },
+  { href: "/legales", label: "Términos legales" },
 ];
 
 export function Footer() {
@@ -125,7 +127,7 @@ export function Footer() {
                   <span>
                     {siteConfig.whatsappDisplay}
                     <span className="block text-xs text-white/40">
-                      WhatsApp mayorista (placeholder)
+                      Cotizaciones y lista de precios
                     </span>
                   </span>
                 </a>
@@ -160,13 +162,33 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col gap-4 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {currentYear} {siteConfig.name}. RIF{" "}
-            {siteConfig.rif} (placeholder).
+            © {currentYear} {siteConfig.name}. RIF {siteConfig.rif}.
           </p>
           <p>
-            Sitio en construcción: datos de contacto y contenido de muestra
-            pendientes de validación.
+            Distribución al mayor de repuestos, cauchos y accesorios para motos
+            en toda Venezuela.
           </p>
+          <a
+            href={siteConfig.developer.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-white"
+            aria-label={`Creado por ${siteConfig.developer.name}`}
+          >
+            <span>Creado por</span>
+            <span className="inline-flex items-center bg-white/45 px-2 py-1 rounded rounded-2xl">
+              <Image
+                src={siteConfig.developer.logo}
+                alt={siteConfig.developer.name}
+                width={500}
+                height={500}
+                className="h-7 w-auto"
+              />
+            </span>
+            <span className="font-medium text-white/70">
+              www.kinetixsistemas.com
+            </span>
+          </a>
         </div>
       </div>
     </footer>

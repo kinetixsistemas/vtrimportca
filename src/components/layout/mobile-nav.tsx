@@ -65,7 +65,7 @@ export function MobileNav() {
           role="dialog"
           aria-modal="true"
           aria-label="Menú de navegación"
-          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-vtr-black lg:hidden"
+          className="menu-wipe fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-vtr-black lg:hidden"
         >
           <div className="tire-pattern border-b border-white/10">
             <div className="container-vtr flex h-20 items-center justify-between">

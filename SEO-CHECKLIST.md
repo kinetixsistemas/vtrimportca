@@ -7,23 +7,20 @@ Lista de verificación para el lanzamiento del sitio. Marcar cada punto antes de
 - [ ] Reemplazar `NEXT_PUBLIC_SITE_URL` por el dominio final, sin barra final.
 - [ ] Configurar `NEXT_PUBLIC_WHATSAPP_NUMBER` con el número real (formato internacional, sin `+`).
 - [ ] Configurar `NEXT_PUBLIC_WHATSAPP_DISPLAY` con el número visible.
-- [ ] Configurar correo, dirección, ciudad, RIF y horario reales.
+- [ ] Confirmar correo, dirección, ciudad y horario reales; definir el RIF definitivo.
 - [ ] Configurar Instagram y Facebook si aplica.
-- [ ] Cambiar `NEXT_PUBLIC_DEMO_MODE=false` cuando todo el contenido sea real.
-- [ ] Confirmar que no queden textos “placeholder”, “pendiente” o “demo” visibles.
+- [ ] Confirmar que `NEXT_PUBLIC_DEMO_MODE` no esté configurado en `true`.
+- [ ] Confirmar que no queden textos “placeholder”, “pendiente” o “demo” visibles (salvo dominio y RIF provisionales).
 
 ## 2. Contenido y catálogo
 
-- [ ] Verificar las marcas de motos y completar los años marcados como “Consultar”.
-- [ ] Reemplazar los 5 productos de muestra de cascos y baterías por catálogo real.
-- [ ] Verificar que cada producto tenga nombre, referencia, descripción y especificaciones correctas.
+- [ ] Verificar que el catálogo no tenga productos de muestra.
+- [ ] Verificar que cada producto tenga nombre, descripción y especificaciones correctas.
 - [ ] Revisar que los `slug` sean estables (cambiarlos después afecta URLs indexadas).
-- [ ] Revisar que las referencias sean únicas.
-- [ ] Validar la compatibilidad referencial con el equipo comercial.
-- [ ] Reemplazar las imágenes placeholder de cascos, baterías, blog y páginas institucionales por fotografías reales en WebP.
+- [ ] Confirmar que todas las imágenes del catálogo sean fotografías reales en WebP.
 - [ ] Verificar que cada imagen tenga texto alternativo descriptivo.
 - [ ] Revisar ortografía y tono de todos los textos.
-- [ ] Reemplazar o eliminar los artículos demo del blog.
+- [ ] Validar el contenido del blog antes de publicar.
 
 ## 3. Metadata y datos estructurados
 
@@ -60,7 +57,7 @@ Lista de verificación para el lanzamiento del sitio. Marcar cada punto antes de
 - [ ] Cargar fotos reales del negocio.
 - [ ] Solicitar reseñas a clientes reales.
 - [ ] Verificar consistencia de NAP en directorios y redes sociales.
-- [ ] Agregar el mapa real en `/contacto` cuando la dirección esté confirmada.
+- [ ] Verificar el enlace de ubicación en `/contacto`.
 
 ## 6. Analítica
 
@@ -118,4 +115,3 @@ Lista de verificación para el lanzamiento del sitio. Marcar cada punto antes de
 - [ ] Revisar páginas con mejor y peor rendimiento.
 - [ ] Actualizar el catálogo y el blog de forma periódica.
 - [ ] Revisar enlaces internos y externos cada trimestre.
-- [ ] Renovar contenido demo si aún queda alguno.

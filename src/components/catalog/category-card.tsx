@@ -17,7 +17,7 @@ export function CategoryCard({
   return (
     <Link
       href={getCategoryPath(category)}
-      className="group relative block h-full overflow-hidden bg-vtr-black focus-visible:outline-offset-4"
+      className="group relative block h-full overflow-hidden bg-vtr-black transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-offset-4"
     >
       <div className="clip-corner relative h-full min-h-64 overflow-hidden">
         <Image
@@ -37,7 +37,7 @@ export function CategoryCard({
         </div>
         <div className="absolute inset-x-0 bottom-0 p-5">
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-vtr-amber">
-            {count} referencia{count === 1 ? "" : "s"}
+            {count} producto{count === 1 ? "" : "s"}
           </p>
           <h3 className="mt-1 text-3xl text-white">{category.name}</h3>
           <p className="mt-1 line-clamp-2 text-sm text-white/70">
