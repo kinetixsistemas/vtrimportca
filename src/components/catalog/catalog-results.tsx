@@ -3,8 +3,10 @@ import {
   filterProducts,
   getCategory,
   getCategoryPath,
+  paginate,
 } from "@/lib/catalog";
 import { ProductCard } from "@/components/catalog/product-card";
+import { Pagination } from "@/components/catalog/pagination";
 import { EmptyState } from "@/components/catalog/empty-state";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
@@ -29,17 +31,32 @@ export async function CatalogResults({
     categorySlug,
   });
 
+  const { items, page, totalPages, totalItems, from, to } = paginate(
+    results,
+    Number(first(params.page) ?? "1"),
+  );
+
   const activeFilters = [q ? `“${q}”` : null].filter(Boolean);
+  const basePath = category ? getCategoryPath(category) : "/catalogo";
+  const paginationParams = {
+    q,
+    categoria: category ? undefined : categorySlug,
+  };
 
   return (
-    <div>
+    <div id="resultados" className="scroll-mt-24">
       <div
         className="mb-6 flex flex-col gap-1 border-b border-vtr-black/10 pb-4 sm:flex-row sm:items-end sm:justify-between"
         aria-live="polite"
       >
         <p className="text-sm font-semibold text-vtr-black">
-          {results.length} producto{results.length === 1 ? "" : "s"}
+          {totalItems} producto{totalItems === 1 ? "" : "s"}
           {category ? ` en ${category.name}` : ""}
+          {totalPages > 1 ? (
+            <span className="ml-2 font-normal text-vtr-gray-dark">
+              · Mostrando {from}–{to}
+            </span>
+          ) : null}
         </p>
         {activeFilters.length > 0 ? (
           <p className="text-xs text-vtr-gray-dark">
@@ -48,20 +65,28 @@ export async function CatalogResults({
         ) : null}
       </div>
 
-      {results.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {results.map((product) => {
-            const productCategory = getCategory(product.categorySlug);
-            if (!productCategory) return null;
-            return (
-              <ProductCard
-                key={product.id}
-                product={product}
-                category={productCategory}
-              />
-            );
-          })}
-        </div>
+      {totalItems > 0 ? (
+        <>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {items.map((product) => {
+              const productCategory = getCategory(product.categorySlug);
+              if (!productCategory) return null;
+              return (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  category={productCategory}
+                />
+              );
+            })}
+          </div>
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+            basePath={basePath}
+            params={paginationParams}
+          />
+        </>
       ) : (
         <EmptyState
           clearHref={category ? getCategoryPath(category) : "/catalogo"}

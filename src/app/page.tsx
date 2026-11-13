@@ -40,7 +40,7 @@ const valueProps = [
     icon: BoxIcon,
     title: "Surtido para tu negocio",
     description:
-      "Seis líneas de producto para abastecer repuesteras, talleres y tiendas de accesorios.",
+      "Siete líneas de producto para abastecer repuesteras, talleres y tiendas de accesorios.",
   },
   {
     icon: TruckIcon,
@@ -91,7 +91,7 @@ const steps = [
 
 const heroSlides: HeroSlide[] = [
   {
-    src: "/images/carrucel/new-yuver-t-barras.webp",
+    src: "/images/carrucel/new-yuber-t-barras.webp",
     alt: "T barras New Yuber disponible al mayor",
     href: "/accesorios/new-yuber",
     label: "Novedad New Yuber",
@@ -105,21 +105,21 @@ const heroSlides: HeroSlide[] = [
     title: "Agarre para tu moto",
   },
   {
-    src: "/images/carrucel/new-yuver-cadenas-reforzada-moto.webp",
+    src: "/images/carrucel/new-yuber-cadenas-reforzada-moto.webp",
     alt: "Cadena reforzada New Yuber para motos",
     href: "/repuestos/new-yuber",
     label: "Novedad New Yuber",
     title: "Cadenas reforzadas",
   },
   {
-    src: "/images/carrucel/new-yuver-bomba-aceite.webp",
+    src: "/images/carrucel/new-yuber-bomba-aceite.webp",
     alt: "Bomba de aceite New Yuber disponible al mayor",
     href: "/repuestos/new-yuber",
     label: "Repuestos New Yuber",
     title: "Bomba de aceite",
   },
   {
-    src: "/images/carrucel/new-yuver-manzana-trasera-enduro.webp",
+    src: "/images/carrucel/new-yuber-manzana-trasera-enduro.webp",
     alt: "Manzana trasera enduro New Yuber",
     href: "/repuestos/new-yuber",
     label: "Línea enduro",
@@ -299,7 +299,7 @@ export default function HomePage() {
 
             <SectionHeading
               eyebrow="Catálogo mayorista"
-              title="Seis líneas para surtir tu negocio"
+              title="Siete líneas para surtir tu negocio"
               description="Selecciona una categoría y encuentra los productos que necesitas."
             />
             <Button

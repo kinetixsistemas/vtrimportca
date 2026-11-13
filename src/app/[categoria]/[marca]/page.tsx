@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import type { Category, Product } from "@/types/catalog";
 import {
   categories,
   getCategory,
@@ -11,6 +13,7 @@ import {
   getProductBrandsByCategory,
   getProductPath,
   getProductsByCategoryAndBrand,
+  paginate,
 } from "@/lib/catalog";
 import { pageMetadata, breadcrumbJsonLd, itemListJsonLd } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -19,7 +22,41 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ProductCard } from "@/components/catalog/product-card";
+import { Pagination } from "@/components/catalog/pagination";
+import { CatalogResultsSkeleton } from "@/components/catalog/catalog-results";
 import { ArrowRightIcon } from "@/components/ui/icons";
+
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
+
+async function BrandResults({
+  products,
+  category,
+  basePath,
+  searchParams,
+}: {
+  products: Product[];
+  category: Category;
+  basePath: string;
+  searchParams: SearchParams;
+}) {
+  const params = await searchParams;
+  const pageParam = Array.isArray(params.page) ? params.page[0] : params.page;
+  const { items, page, totalPages } = paginate(
+    products,
+    Number(pageParam ?? "1"),
+  );
+
+  return (
+    <>
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {items.map((product) => (
+          <ProductCard key={product.id} product={product} category={category} />
+        ))}
+      </div>
+      <Pagination page={page} totalPages={totalPages} basePath={basePath} />
+    </>
+  );
+}
 
 export function generateStaticParams() {
   return categories.flatMap((category) =>
@@ -66,8 +103,10 @@ export async function generateMetadata({
 
 export default async function MarcaPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ categoria: string; marca: string }>;
+  searchParams: SearchParams;
 }) {
   const { categoria, marca } = await params;
   const category = getCategory(categoria);
@@ -163,14 +202,15 @@ export default async function MarcaPage({
             </Link>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {brandProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
+          <div id="resultados" className="scroll-mt-24">
+            <Suspense fallback={<CatalogResultsSkeleton />}>
+              <BrandResults
+                products={brandProducts}
                 category={category}
+                basePath={getProductBrandPath(category, brand.slug)}
+                searchParams={searchParams}
               />
-            ))}
+            </Suspense>
           </div>
         </Container>
       </section>

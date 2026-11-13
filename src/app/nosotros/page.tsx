@@ -67,7 +67,7 @@ export default function NosotrosPage() {
 
       <section className="relative isolate overflow-hidden bg-vtr-black text-white">
         <Image
-          src="/images/carrucel/new-yuver-t-barras.webp"
+          src="/images/carrucel/new-yuber-t-barras.webp"
           alt="Catálogo mayorista de repuestos y accesorios para motos"
           fill
           priority

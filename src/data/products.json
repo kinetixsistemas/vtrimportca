@@ -3215,7 +3215,7 @@
   {
     "id": "sir-acc-001",
     "slug": "siruis-parts-maletero-moto-s-66",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto S 66",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto S 66 de Siruis Parts, disponible al mayor.",
@@ -3256,7 +3256,7 @@
   {
     "id": "sir-acc-002",
     "slug": "siruis-parts-maletero-moto-ym-0807",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 0807",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 0807 de Siruis Parts, disponible al mayor.",
@@ -3297,7 +3297,7 @@
   {
     "id": "sir-acc-003",
     "slug": "siruis-parts-maletero-moto-ym-0830",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 0830",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 0830 de Siruis Parts, disponible al mayor.",
@@ -3338,7 +3338,7 @@
   {
     "id": "sir-acc-004",
     "slug": "siruis-parts-maletero-moto-ym-0839",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 0839",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 0839 de Siruis Parts, disponible al mayor.",
@@ -3379,7 +3379,7 @@
   {
     "id": "sir-acc-005",
     "slug": "siruis-parts-maletero-moto-ym-0856",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 0856",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 0856 de Siruis Parts, disponible al mayor.",
@@ -3420,7 +3420,7 @@
   {
     "id": "sir-acc-006",
     "slug": "siruis-parts-maletero-moto-ym-08562",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 08562",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 08562 de Siruis Parts, disponible al mayor.",
@@ -3461,7 +3461,7 @@
   {
     "id": "sir-acc-007",
     "slug": "siruis-parts-maletero-moto-ym-0857",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 0857",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 0857 de Siruis Parts, disponible al mayor.",
@@ -3502,7 +3502,7 @@
   {
     "id": "sir-acc-008",
     "slug": "siruis-parts-maletero-moto-ym-08572",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 08572",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 08572 de Siruis Parts, disponible al mayor.",
@@ -3543,7 +3543,7 @@
   {
     "id": "sir-acc-009",
     "slug": "siruis-parts-maletero-moto-ym-0879",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 0879",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 0879 de Siruis Parts, disponible al mayor.",
@@ -3584,7 +3584,7 @@
   {
     "id": "sir-acc-010",
     "slug": "siruis-parts-maletero-moto-ym-0885",
-    "categorySlug": "accesorios",
+    "categorySlug": "maleteros",
     "name": "Maletero para moto YM 0885",
     "productBrand": "Siruis Parts",
     "shortDescription": "Maletero para moto YM 0885 de Siruis Parts, disponible al mayor.",
@@ -3624,15 +3624,15 @@
   },
   {
     "id": "juv-rep-001",
-    "slug": "new-yuver-cadenas-reforzada-moto",
+    "slug": "new-yuber-cadenas-reforzada-moto",
     "categorySlug": "repuestos",
     "name": "New Yuber Cadena Reforzada",
     "productBrand": "New Yuber",
     "shortDescription": "Cadena reforzada New Yuber para motos de trabajo y uso diario.",
     "description": "New Yuber Cadena Reforzada de New Yuber. Producto disponible para compra al mayor en VTR Import C.A. Confirma presentación y disponibilidad con un asesor por WhatsApp.",
-    "image": "/images/carrucel/new-yuver-cadenas-reforzada-moto.webp",
+    "image": "/images/carrucel/new-yuber-cadenas-reforzada-moto.webp",
     "gallery": [
-      "/images/carrucel/new-yuver-cadenas-reforzada-moto.webp"
+      "/images/carrucel/new-yuber-cadenas-reforzada-moto.webp"
     ],
     "specs": [
       {
@@ -3664,15 +3664,15 @@
   },
   {
     "id": "juv-rep-002",
-    "slug": "new-yuver-manzana-trasera-enduro",
+    "slug": "new-yuber-manzana-trasera-enduro",
     "categorySlug": "repuestos",
     "name": "New Yuber Manzana Trasera Enduro",
     "productBrand": "New Yuber",
     "shortDescription": "Manzana trasera enduro New Yuber para reposición de rines.",
     "description": "New Yuber Manzana Trasera Enduro de New Yuber. Producto disponible para compra al mayor en VTR Import C.A. Confirma presentación y disponibilidad con un asesor por WhatsApp.",
-    "image": "/images/carrucel/new-yuver-manzana-trasera-enduro.webp",
+    "image": "/images/carrucel/new-yuber-manzana-trasera-enduro.webp",
     "gallery": [
-      "/images/carrucel/new-yuver-manzana-trasera-enduro.webp"
+      "/images/carrucel/new-yuber-manzana-trasera-enduro.webp"
     ],
     "specs": [
       {
@@ -3711,9 +3711,9 @@
     "productBrand": "New Yuber",
     "shortDescription": "Bomba de aceite New Yuber para mantenimiento de motor.",
     "description": "New Yuber Bomba de Aceite de New Yuber. Producto disponible para compra al mayor en VTR Import C.A. Confirma presentación y disponibilidad con un asesor por WhatsApp.",
-    "image": "/images/carrucel/new-yuver-bomba-aceite.webp",
+    "image": "/images/carrucel/new-yuber-bomba-aceite.webp",
     "gallery": [
-      "/images/carrucel/new-yuver-bomba-aceite.webp"
+      "/images/carrucel/new-yuber-bomba-aceite.webp"
     ],
     "specs": [
       {
@@ -3750,9 +3750,9 @@
     "productBrand": "New Yuber",
     "shortDescription": "T barras New Yuber para personalizar y reforzar tu moto.",
     "description": "New Yuber T Barras de New Yuber. Producto disponible para compra al mayor en VTR Import C.A. Confirma presentación y disponibilidad con un asesor por WhatsApp.",
-    "image": "/images/carrucel/new-yuver-t-barras.webp",
+    "image": "/images/carrucel/new-yuber-t-barras.webp",
     "gallery": [
-      "/images/carrucel/new-yuver-t-barras.webp"
+      "/images/carrucel/new-yuber-t-barras.webp"
     ],
     "specs": [
       {

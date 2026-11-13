@@ -218,3 +218,35 @@ export function getCatalogStats() {
     brands: new Set(products.map((product) => product.productBrand)).size,
   };
 }
+
+export const CATALOG_PAGE_SIZE = 12;
+
+export type Paginated<T> = {
+  items: T[];
+  page: number;
+  totalPages: number;
+  totalItems: number;
+  from: number;
+  to: number;
+};
+
+export function paginate<T>(
+  items: T[],
+  page: number,
+  pageSize = CATALOG_PAGE_SIZE,
+): Paginated<T> {
+  const totalItems = items.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  const currentPage = Math.min(Math.max(1, Math.trunc(page) || 1), totalPages);
+  const start = (currentPage - 1) * pageSize;
+  const pageItems = items.slice(start, start + pageSize);
+
+  return {
+    items: pageItems,
+    page: currentPage,
+    totalPages,
+    totalItems,
+    from: totalItems === 0 ? 0 : start + 1,
+    to: start + pageItems.length,
+  };
+}
