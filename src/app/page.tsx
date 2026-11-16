@@ -40,7 +40,7 @@ const valueProps = [
     icon: BoxIcon,
     title: "Surtido para tu negocio",
     description:
-      "Siete líneas de producto para abastecer repuesteras, talleres y tiendas de accesorios.",
+      "Mas de Siete líneas de producto para abastecer repuesteras, talleres y tiendas de accesorios.",
   },
   {
     icon: TruckIcon,
@@ -52,7 +52,7 @@ const valueProps = [
     icon: ShieldIcon,
     title: "Atención B2B",
     description:
-      "Condiciones de mayoreo, productos claros y acompañamiento para tu reposición.",
+      "Repuestos al mayor, productos claros y acompañamiento para tu reposición.",
   },
   {
     icon: SparkIcon,
@@ -196,7 +196,7 @@ export default function HomePage() {
                 className="motion-rise mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/60"
                 style={{ animationDelay: "320ms" }}
               >
-         
+
                 <span>Repuestos de alta rotacion </span>
                 <span aria-hidden="true" className="text-vtr-amber">
                   /
@@ -287,6 +287,19 @@ export default function HomePage() {
                 width={211}
                 height={86}
                 className="h-20 w-auto object-contain sm:h-10 rounded-md"
+              />
+            </Link>
+            <Link
+              href="/repuestos/perfect-motorcycle"
+              aria-label="Perfect Motorcycle"
+              className="block opacity-80 transition-opacity hover:opacity-100"
+            >
+              <Image
+                src="/images/marcas/perfect-motorcycle.webp"
+                alt="Perfect Motorcycle"
+                width={211}
+                height={86}
+                className="h-40 w-auto object-contain sm:h-15 rounded-full bg-white border border-vtr-black/10 p-1"
               />
             </Link>
           </div>

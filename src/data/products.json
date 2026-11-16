@@ -3823,5 +3823,363 @@
       "eléctrico",
       "baterias"
     ]
+  },
+  {
+    "id": "pm-rep-001",
+    "slug": "perfect-motorcycle-banda-freno-150",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Banda Freno 150",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Banda de freno 150 Perfect Motorcycle, disponible al mayor.",
+    "description": "Banda Freno 150 de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-banda-freno-150.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-banda-freno-150.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "banda",
+      "freno",
+      "150",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-002",
+    "slug": "perfect-motorcycle-cadena-reforzada-oring",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Cadena Reforzada O-Ring",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Cadena reforzada O-Ring Perfect Motorcycle, disponible al mayor.",
+    "description": "Cadena Reforzada O-Ring de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-cadena-reforzada-oring.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-cadena-reforzada-oring.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "cadena",
+      "reforzada",
+      "oring",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-003",
+    "slug": "perfect-motorcycle-embobinado-motos",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Embobinado para Motos",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Embobinado para motos Perfect Motorcycle, disponible al mayor.",
+    "description": "Embobinado para Motos de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-embobinado-motos.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-embobinado-motos.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "embobinado",
+      "motos",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-004",
+    "slug": "perfect-motorcycle-kit-cilicndro-200",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Kit Cilindro 200",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Kit de cilindro 200 Perfect Motorcycle, disponible al mayor.",
+    "description": "Kit Cilindro 200 de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-kit-cilicndro-200.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-kit-cilicndro-200.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "kit",
+      "cilicndro",
+      "200",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-005",
+    "slug": "perfect-motorcycle-kit-cilindro-cg",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Kit Cilindro CG",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Kit de cilindro CG Perfect Motorcycle, disponible al mayor.",
+    "description": "Kit Cilindro CG de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-kit-cilindro-cg.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-kit-cilindro-cg.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "kit",
+      "cilindro",
+      "cg",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-006",
+    "slug": "perfect-motorcycle-kit-valvulas-completo",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Kit Válvulas Completo",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Kit de válvulas completo Perfect Motorcycle, disponible al mayor.",
+    "description": "Kit Válvulas Completo de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-kit-valvulas-completo.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-kit-valvulas-completo.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "kit",
+      "valvulas",
+      "completo",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-007",
+    "slug": "perfect-motorcycle-liga-freno",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Liga de Freno",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Liga de freno Perfect Motorcycle, disponible al mayor.",
+    "description": "Liga de Freno de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-liga-freno.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-liga-freno.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "liga",
+      "freno",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-008",
+    "slug": "perfect-motorcycle-muffle-punta-lapiz",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Mofle Punta Lápiz",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Mofle punta lápiz Perfect Motorcycle, disponible al mayor.",
+    "description": "Mofle Punta Lápiz de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-muffle-punta-lapiz.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-muffle-punta-lapiz.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "muffle",
+      "punta",
+      "lapiz",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-009",
+    "slug": "perfect-motorcycle-stop-sbr",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Stop SBR",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Stop SBR Perfect Motorcycle, disponible al mayor.",
+    "description": "Stop SBR de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-stop-sbr.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-stop-sbr.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "stop",
+      "sbr",
+      "repuestos",
+      "perfect motorcycle"
+    ]
+  },
+  {
+    "id": "pm-rep-010",
+    "slug": "perfect-motorcycle-tacometro-digital-md-2024",
+    "categorySlug": "repuestos",
+    "name": "Perfect Motorcycle Tacómetro Digital MD-2024",
+    "productBrand": "Perfect Motorcycle",
+    "shortDescription": "Tacómetro digital MD-2024 Perfect Motorcycle, disponible al mayor.",
+    "description": "Tacómetro Digital MD-2024 de Perfect Motorcycle. Producto disponible para compra al mayor en VTR Import C.A. Confirma compatibilidad, presentación y disponibilidad con un asesor por WhatsApp.",
+    "image": "/images/perfect-motorcycle/perfect-motorcycle-tacometro-digital-md-2024.webp",
+    "gallery": [
+      "/images/perfect-motorcycle/perfect-motorcycle-tacometro-digital-md-2024.webp"
+    ],
+    "specs": [
+      {
+        "label": "Línea",
+        "value": "Repuestos"
+      },
+      {
+        "label": "Marca",
+        "value": "Perfect Motorcycle"
+      },
+      {
+        "label": "Presentación",
+        "value": "Unidad"
+      }
+    ],
+    "featured": false,
+    "isSample": false,
+    "tags": [
+      "tacometro",
+      "digital",
+      "md",
+      "2024",
+      "repuestos",
+      "perfect motorcycle"
+    ]
   }
 ]
